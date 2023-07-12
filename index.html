@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pets</title>
+</head>
+<body>
+    <pre class="mermaid">
+        ---
+        pet store
+        ---
+        classDiagram
+        direction RL
+        PetStore<|-- account
+            PetStore "1"--> Customer:Association "1..*"
+            account "1"--> Customer
+            PetStore "1" --> Products:Association "1..*"
+            PetStore "1"--> pets:Association "1..*"
+            Customer "1"--> pets:Association "1..*"
+            PetStore--> account:Association
+            Events<|-- Customer
+            PetStore "1"--> Events:Association "1..*"
+            Customer ..> PetStore
+            Events ..> PetStore
+            pets ..> PetStore
+            account ..> PetStore
+            Products ..> PetStore
+
+            class PetStore{
+
+                +Number id
+                +String name
+                +String address
+                +String Description
+                +String account
+                +String Products
+                +String pets
+                +String Events
+                +String Types
+                +CreatePetStore()
+            }
+
+            class account{
+                +Number id
+                +CustomerName
+                +String email
+                +String password
+                +Number custumer_id
+                +login()
+            
+
+            }
+
+            
+            class Customer{
+                +Number CustumerId
+                +String CustomerName
+                +Number phone
+                +String address
+                +String email
+                +CustomerRegistration()
+
+            }
+
+            class RewardsMembers{
+                +Number RewardId
+                +String CustomerEmail
+                +String CustomerReward
+
+            }
+
+
+            class Events{
+                +Number id
+                +String Description
+                +String promotions
+                +String vaccinations
+                +String adoption
+                +Number bills
+                +CreateEvents()
+
+            }
+
+            class pets{
+                +Number Id
+                +String Name
+                +Date PetsDateOfBirth
+                +String PetType
+                +CreatePets()
+
+            }
+
+           class Products{
+            +Number id
+            +String name
+            +Double precio
+            +CreateProducts()
+
+            }
+
+
+
+           
+</pre>
+   <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+        
+      </script>
+</body>
+</html>
+
+
